@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Luca Mazuel">
+  <title>Guessing Game</title>
+</head>
+<body>
+  <script>
+    randomNumber = Math.floor(Math.random() * 10) +1;
+    console.log(randomNumber);  
+  </script> 
+  <script> 
+    let uNumber; 
+      let guessCount = 0; 
+
+      do {
+        uNumber = parseInt(prompt(`Guess a number between 1 and 10`), 10);
+        
+        guessCount++;
+
+        if (uNumber > randomNumber) {
+          alert('Your guess was too high. Try again.');
+        } else if (uNumber < randomNumber) {
+          alert('Your guess was too low. Try again.');
+        } else if (uNumber === randomNumber) {
+          alert(`You guessed it in ${guessCount} ${guessCount === 1 ? 'guess' : 'guesses'}!`);
+        } else {
+          alert('Please enter a valid number.');
+        }
+      } while (uNumber !== randomNumber); 
+      
+  </script>
+</body>
+</html>
