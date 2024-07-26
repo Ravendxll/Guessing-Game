@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Luca Mazuel">
+  <title>Bear Hunt Ninja</title>
+</head>
+<body>
+  <script>
+    // Interact with User
+    document.addEventListener('DOMContentLoaded', function() {
+      let uname = prompt('Welcome to Bear Hunt Ninja! Please enter your name to get started:');
+      let amessage = `Hello, ${uname}! Let's play!`;
+      alert(amessage);
+
+      let bnh = prompt('Who are you: Bear, Hunter, or Ninja?');
+      
+      // Display the user's choice in the HTML
+      let demoElement = document.getElementById("demo");
+      if (demoElement !== null) {
+        demoElement.innerHTML = `${uname}, you picked ${bnh}!`;
+      } else {
+        console.error("Element with id 'demo' not found!");
+      }
+
+      // Log the user's choice to the console
+      console.log(`User chose: ${bnh}`);
+
+      // Computer "selection" (bear)
+      let computerSelection = "Bear";
+
+      // Display computer's choice in demo2
+      let demoElement2 = document.getElementById("demo2");
+      if (demoElement2 !== null) {
+        demoElement2.innerHTML = `Computer chose ${computerSelection}.`;
+      } else {
+        console.error("Element with id 'demo2' not found!");
+      }
+
+      //Log Computers choice to console
+      console.log('Computer chose: Bear')
+
+
+      // Determine the game result
+      let gameResult;
+      if (bnh === computerSelection) {
+        gameResult = "It's a tie!";
+      } else if (
+        (bnh === 'Bear' && computerSelection === 'Ninja') ||
+        (bnh === 'Hunter' && computerSelection === 'Bear') ||
+        (bnh === 'Ninja' && computerSelection === 'Hunter')
+      ) {
+        gameResult = `You win! ${bnh} beats ${computerSelection}.`;
+      } else {
+        gameResult = `You lose! ${computerSelection} beats ${bnh}.`;
+      }
+
+      // Display game result
+      let resultElement = document.getElementById("game-result");
+      if (resultElement !== null) {
+        resultElement.innerHTML = gameResult;
+      } else {
+        console.error("Element with id 'game-result' not found!");
+      }
+
+      //Log game result to console
+      console.log(gameResult)
+    });
+  </script>
+
+  <p id="demo">User's choice will be displayed here.</p>
+  <p id="demo2">Computer's choice will be displayed here.</p>
+  <p id="game-result">Game result will be displayed here.</p>
+</body>
+</html>
